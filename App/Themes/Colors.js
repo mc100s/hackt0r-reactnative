@@ -1,11 +1,15 @@
 const colors = {
-  background: '#1F0808',
+  background: '#F0F0F0',
+  border: '#483F53',
+  banner: '#5F3E63',
+  text: '#0C120C',
+  error: 'rgba(200, 0, 0, 0.8)',
+  
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
   transparent: 'rgba(0,0,0,0)',
   silver: '#F7F7F7',
   steel: '#CCCCCC',
-  error: 'rgba(200, 0, 0, 0.8)',
   ricePaper: 'rgba(255,255,255, 0.75)',
   frost: '#D8D8D8',
   cloud: 'rgba(200,200,200, 0.35)',
@@ -19,9 +23,13 @@ const colors = {
   fire: '#e73536',
   drawer: 'rgba(30, 30, 29, 0.95)',
   eggplant: '#251a34',
-  border: '#483F53',
-  banner: '#5F3E63',
-  text: '#E0D7E5'
+
+  lightRed: '#FA614D',
+  red: '#e73536',
+  darkRed: '#C33A23',
+  white: '#FFFFFF',
+  black: '#0C120C',
+  darkBlue: '#404E7C'
 }
 
 export default colors

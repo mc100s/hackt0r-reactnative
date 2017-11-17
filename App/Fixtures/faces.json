@@ -1,0 +1,57 @@
+{
+  "Faces": [
+    {
+      "name": "Oh well!",
+      "art" : "¯\\_(ツ)_/¯"
+    },
+    {
+      "name": "Disapproving Look",
+      "art":  "ಠ_ಠ"
+    },
+    {
+      "name": "Disapproving Look 2",
+      "art":  "ఠ_ఠ"
+    },
+    {
+      "name": "Glasses Smile",
+      "art":  "ʘ‿ʘ"
+    },
+    {
+      "name": "Devious Smile",
+      "art":  "ಠ‿ಠ"
+    },
+    {
+      "name": "Oh well!",
+      "art" : "¯\\_(ツ)_/¯"
+    },
+    {
+      "name": "Disapproving Look",
+      "art":  "ಠ_ಠ"
+    },
+    {
+      "name": "Disapproving Look 2",
+      "art":  "ఠ_ఠ"
+    },
+    {
+      "name": "Glasses Smile",
+      "art":  "ʘ‿ʘ"
+    },
+    {
+      "name": "Devious Smile",
+      "art":  "ಠ‿ಠ"
+    }
+  ],
+  "second": [
+    {"name": "Eleventh Title", "art": "Eleventh Description"},
+    {"name": "12th Title", "art": "12th Description"},
+    {"name": "13th Title", "art": "13th Description"},
+    {"name": "14th Title", "art": "14th Description"},
+    {"name": "15th Title", "art": "15th Description"},
+    {"name": "16th Title", "art": "16th Description"},
+    {"name": "17th Title", "art": "17th Description"},
+    {"name": "18th Title", "art": "18th Description"},
+    {"name": "19th Title", "art": "19th Description"},
+    {"name": "20th Title", "art": "20th Description"},
+    {"name": "BLACKJACK!", "art": "BLACKJACK! Description"}
+  ]
+}
