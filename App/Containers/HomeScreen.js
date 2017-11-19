@@ -24,7 +24,7 @@ class HomeScreen extends React.Component {
 
           <View style={styles.section} >
             <Text style={styles.sectionText}>
-              Welcome on Hacktor!
+              Welcome on Hackt0r!
             </Text>
           </View>
 
@@ -32,7 +32,7 @@ class HomeScreen extends React.Component {
             Play Quiz
           </RoundedButton>
           <RoundedButton onPress={() => this.props.navigation.navigate('HomeScreen')} >
-            Your Hacktors list
+            Your Hackt0rs list
           </RoundedButton>
           <RoundedButton onPress={() => this.props.navigation.navigate('HomeScreen')} >
             Two players game

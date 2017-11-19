@@ -17,6 +17,7 @@ function areSameNames(a, b) {
   // TODO: improve this function to allow small mistakes
   return a.trim().toUpperCase() == b.trim().toUpperCase()
 }
+const congratMessages = ["Yes!", "Congrats!", "Well guessed!", "Awesome!", "You rock!"];
 
 class GuessActorScreen extends React.Component {
   state = {
@@ -31,13 +32,16 @@ class GuessActorScreen extends React.Component {
   }
 
   componentWillMount() {
-
     this.state.actor = dataActors[Math.floor(Math.random() * dataActors.length)]
   }
 
   check = () => {
     let isCorrect = areSameNames(this.state.inputName, this.state.actor.name) 
-    let message = isCorrect ? "Yes!" : "You guess wrong, it was " + this.state.actor.name
+    let message
+    if (isCorrect)
+      message = congratMessages[Math.floor(congratMessages.length*Math.random())]
+    else
+      message = this.state.inputName == "" ? "It was " + this.state.actor.name : "You guess wrong, it was " + this.state.actor.name
     this.setState({
       isValidated: true,
       isCorrect,
@@ -48,15 +52,27 @@ class GuessActorScreen extends React.Component {
     // this.props.test()    
   }
 
+  nextActor = () => {
+    this.setState({
+      ...this.state,
+      actor: dataActors[Math.floor(Math.random() * dataActors.length)],
+      isCorrect: false,
+      isValidated: false,
+      inputName: "",
+      message: ""
+    })
+  }
+
   renderButton = () => {
     if (!this.state.isValidated) {
+      let buttonMsg = this.state.inputName == "" ? "I don't know" : "Check"
       return (
         <RoundedButton
           style
           // onPress={() => this.props.navigation.navigate('GuessActorScreen')}
           onPress={this.check}
         >
-          Check
+          {buttonMsg}
         </RoundedButton>
       )
     }
@@ -65,7 +81,8 @@ class GuessActorScreen extends React.Component {
       return (
         <RoundedButton
           style
-          onPress={() => this.props.navigation.navigate('GuessActorScreen')}
+          onPress={this.nextActor}
+          // onPress={() => this.props.navigation.navigate('GuessActorScreen')}
         >
           Next
         </RoundedButton>
@@ -86,6 +103,7 @@ class GuessActorScreen extends React.Component {
           </View>
 
           <TextInput
+            autoCorrect={false}
             underlineColorAndroid={"white"}
             style={styles.input}
             ref= {(el) => { this.inputName = el; }}
