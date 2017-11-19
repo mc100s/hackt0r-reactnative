@@ -2,6 +2,7 @@ import React from 'react'
 import { ScrollView, Text, KeyboardAvoidingView, Image, View, TextInput } from 'react-native'
 import { connect } from 'react-redux'
 import RoundedButton from '../../App/Components/RoundedButton'
+import GuessActorActions from '../Redux/GuessActorRedux'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -12,13 +13,21 @@ import styles from './Styles/GuessActorScreenStyle'
 const dataActors = require('../Fixtures/actors.json').actors
 
 
+function areSameNames(a, b) {
+  // TODO: improve this function to allow small mistakes
+  return a.trim().toUpperCase() == b.trim().toUpperCase()
+}
+
 class GuessActorScreen extends React.Component {
   state = {
     actor: {
       "name": "Matt Damon",
       "pictureUrl": 'https://image.tmdb.org/t/p/w500/elSlNgV8xVifsbHpFsqrPGxJToZ.jpg'
     },
-    isValidated: false
+    isCorrect: false,
+    isValidated: false,
+    inputName: "",
+    message: ""
   }
 
   componentWillMount() {
@@ -27,11 +36,20 @@ class GuessActorScreen extends React.Component {
   }
 
   check = () => {
-    this.state.isValidated = true
+    let isCorrect = areSameNames(this.state.inputName, this.state.actor.name) 
+    let message = isCorrect ? "Yes!" : "You guess wrong, it was " + this.state.actor.name
+    this.setState({
+      isValidated: true,
+      isCorrect,
+      message
+    })      
+    // this.state.isValidated = true
+    console.log("DEBUG check: this.state", this.state)
+    // this.props.test()    
   }
 
   renderButton = () => {
-    if (false && !this.state.isValidated) {
+    if (!this.state.isValidated) {
       return (
         <RoundedButton
           style
@@ -43,6 +61,7 @@ class GuessActorScreen extends React.Component {
       )
     }
     else {
+      console.log("Next")
       return (
         <RoundedButton
           style
@@ -63,13 +82,24 @@ class GuessActorScreen extends React.Component {
               style={styles.actorImage}
               source={{ uri: this.state.actor.pictureUrl }}
             />
-            <Text>{ this.state.actor.name }</Text>
+            {/* <Text style={styles.text}>{ this.state.actor.name }</Text> */}
           </View>
 
-          <TextInput style={styles.input} />
+          <TextInput
+            underlineColorAndroid={"white"}
+            style={styles.input}
+            ref= {(el) => { this.inputName = el; }}
+            onChangeText={(inputName) => this.setState({inputName})}
+            value={this.state.inputName}
+          />
 
           
           {this.renderButton()}
+
+          <View style={styles.centered}>
+            <Text style={styles.text}>{ this.state.message }</Text>
+          </View>
+          
         </KeyboardAvoidingView>
       </ScrollView>
     )
@@ -83,6 +113,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    // test: () => dispatch(GuessActorActions.guessActorRequest("myData"))
   }
 }
 

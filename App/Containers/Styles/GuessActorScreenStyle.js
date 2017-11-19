@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { Colors, Metrics, ApplicationStyles } from '../../Themes/'
 
-let actorImageWidth = Metrics.screenWidth * 0.8
+let actorImageWidth = Metrics.screenWidth * 0.6
 let actorImageHeight = actorImageWidth*750/500
 
 export default StyleSheet.create({
@@ -31,5 +31,8 @@ export default StyleSheet.create({
     // flexGrow: 1,
     textAlign: 'center',
     marginHorizontal: Metrics.section,
+  },
+  text: {
+    color: Colors.white
   }
 })
