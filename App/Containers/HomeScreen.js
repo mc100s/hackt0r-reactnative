@@ -34,7 +34,7 @@ class HomeScreen extends React.Component {
           <RoundedButton onPress={() => this.props.navigation.navigate('HomeScreen')} >
             Your Hackt0rs list
           </RoundedButton>
-          <RoundedButton onPress={() => this.props.navigation.navigate('HomeScreen')} >
+          <RoundedButton onPress={() => this.props.navigation.navigate('MultiPlayersGameScreen')} >
             Two players game
           </RoundedButton>
         </ScrollView>

@@ -66,7 +66,6 @@ class GuessActorScreen extends React.Component {
       let buttonMsg = this.state.inputName == "" ? "I don't know" : "Check"
       return (
         <RoundedButton
-          style
           // onPress={() => this.props.navigation.navigate('GuessActorScreen')}
           onPress={this.check}
         >
@@ -77,7 +76,6 @@ class GuessActorScreen extends React.Component {
     else {
       return (
         <RoundedButton
-          style
           onPress={this.nextActor}
           // onPress={() => this.props.navigation.navigate('GuessActorScreen')}
         >

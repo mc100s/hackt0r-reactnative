@@ -24,12 +24,7 @@ export default StyleSheet.create({
     width: actorImageWidth,
     height: 70,
     marginTop: -70,
-  },
-  actorImageAnswerSuccess: {
-    backgroundColor: "rgba(20, 180, 20, 0.5)", 
-  },
-  actorImageAnswerFailure: {
-    backgroundColor: "rgba(200, 10, 10, 0.5)", 
+    backgroundColor: "rgba(64, 78, 224, 0.5)"
   },
   actorImageAnswerText: {
     fontSize: 18,
@@ -40,11 +35,41 @@ export default StyleSheet.create({
     height: 50,
     color: Colors.white,
     borderBottomColor: Colors.white,
-    // flexGrow: 1,
     textAlign: 'center',
     marginHorizontal: Metrics.section,
   },
   text: {
+    color: Colors.white
+  },
+  playersButton: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: Metrics.baseMargin
+  },
+  playerButton: {
+    height: Metrics.screenWidth/2 - 3*Metrics.baseMargin,
+    width: Metrics.screenWidth/2 - 3*Metrics.baseMargin,
+    marginHorizontal: Metrics.baseMargin,
+  },
+  playersScore: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: Metrics.baseMargin
+  },
+  playerScore: {
+    textAlign: 'center',    
+    fontSize: 30,
+    lineHeight: 60,
+    color: Colors.white,
+    // backgroundColor: 'red',
+    width: Metrics.screenWidth/2 - 3*Metrics.baseMargin,
+    marginHorizontal: Metrics.baseMargin,
+    marginVertical: Metrics.doubleBaseMargin,
+    paddingBottom: 10
+  },
+  countingNbText: {
+    textAlign: 'center',    
+    fontSize: 150,
     color: Colors.white
   }
 })

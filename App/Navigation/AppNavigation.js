@@ -1,4 +1,5 @@
 import { StackNavigator } from 'react-navigation'
+import MultiPlayersGameScreen from '../Containers/MultiPlayersGameScreen'
 import GuessActorScreen from '../Containers/GuessActorScreen'
 import HomeScreen from '../Containers/HomeScreen'
 import TextablesScreen from '../Containers/TextablesScreen'
@@ -9,6 +10,7 @@ import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
 const PrimaryNav = StackNavigator({
+  MultiPlayersGameScreen: { screen: MultiPlayersGameScreen },
   GuessActorScreen: { screen: GuessActorScreen },
   HomeScreen: { screen: HomeScreen },
   TextablesScreen: { screen: TextablesScreen },
