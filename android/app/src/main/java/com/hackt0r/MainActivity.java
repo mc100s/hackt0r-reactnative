@@ -1,4 +1,4 @@
-package com.textables;
+package com.hackt0r;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "Textables";
+        return "Hackt0r";
     }
 }

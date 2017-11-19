@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "Textables-tvOS.app"
-               BlueprintName = "Textables-tvOS"
-               ReferencedContainer = "container:Textables.xcodeproj">
+               BuildableName = "Hackt0r-tvOS.app"
+               BlueprintName = "Hackt0r-tvOS"
+               ReferencedContainer = "container:Hackt0r.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Textables-tvOSTests.xctest"
-               BlueprintName = "Textables-tvOSTests"
-               ReferencedContainer = "container:Textables.xcodeproj">
+               BuildableName = "Hackt0r-tvOSTests.xctest"
+               BlueprintName = "Hackt0r-tvOSTests"
+               ReferencedContainer = "container:Hackt0r.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Textables-tvOSTests.xctest"
-               BlueprintName = "Textables-tvOSTests"
-               ReferencedContainer = "container:Textables.xcodeproj">
+               BuildableName = "Hackt0r-tvOSTests.xctest"
+               BlueprintName = "Hackt0r-tvOSTests"
+               ReferencedContainer = "container:Hackt0r.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Textables-tvOS.app"
-            BlueprintName = "Textables-tvOS"
-            ReferencedContainer = "container:Textables.xcodeproj">
+            BuildableName = "Hackt0r-tvOS.app"
+            BlueprintName = "Hackt0r-tvOS"
+            ReferencedContainer = "container:Hackt0r.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Textables-tvOS.app"
-            BlueprintName = "Textables-tvOS"
-            ReferencedContainer = "container:Textables.xcodeproj">
+            BuildableName = "Hackt0r-tvOS.app"
+            BlueprintName = "Hackt0r-tvOS"
+            ReferencedContainer = "container:Hackt0r.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Textables-tvOS.app"
-            BlueprintName = "Textables-tvOS"
-            ReferencedContainer = "container:Textables.xcodeproj">
+            BuildableName = "Hackt0r-tvOS.app"
+            BlueprintName = "Hackt0r-tvOS"
+            ReferencedContainer = "container:Hackt0r.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
