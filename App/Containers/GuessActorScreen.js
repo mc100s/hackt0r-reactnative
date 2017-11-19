@@ -47,9 +47,6 @@ class GuessActorScreen extends React.Component {
       isCorrect,
       message
     })      
-    // this.state.isValidated = true
-    console.log("DEBUG check: this.state", this.state)
-    // this.props.test()    
   }
 
   nextActor = () => {
@@ -61,6 +58,7 @@ class GuessActorScreen extends React.Component {
       inputName: "",
       message: ""
     })
+    this.inputName.focus()
   }
 
   renderButton = () => {
@@ -77,7 +75,6 @@ class GuessActorScreen extends React.Component {
       )
     }
     else {
-      console.log("Next")
       return (
         <RoundedButton
           style
@@ -90,6 +87,17 @@ class GuessActorScreen extends React.Component {
     }
   }
 
+  renderSolution = () => {
+    if (this.state.isValidated) {
+      let successFailureStyles = this.state.isCorrect ? styles.actorImageAnswerSuccess : styles.actorImageAnswerFailure
+      return (
+        <View style={[styles.actorImageAnswer, successFailureStyles]}>
+          <Text style={[styles.text, styles.actorImageAnswerText]}>{ this.state.actor.name }</Text>
+        </View> 
+      )
+    }
+  } 
+
   render () {
     return (
       <ScrollView style={styles.container}>
@@ -98,19 +106,19 @@ class GuessActorScreen extends React.Component {
             <Image
               style={styles.actorImage}
               source={{ uri: this.state.actor.pictureUrl }}
-            />
-            {/* <Text style={styles.text}>{ this.state.actor.name }</Text> */}
+            /> 
+            {this.renderSolution()}
           </View>
+                   
 
           <TextInput
-            autoCorrect={false}
+            autoFocus={true}
             underlineColorAndroid={"white"}
             style={styles.input}
-            ref= {(el) => { this.inputName = el; }}
+            ref= {(el) => { this.inputName = el }}
             onChangeText={(inputName) => this.setState({inputName})}
             value={this.state.inputName}
           />
-
           
           {this.renderButton()}
 
