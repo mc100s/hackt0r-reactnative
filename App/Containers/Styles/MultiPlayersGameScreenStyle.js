@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native'
 import { Colors, Metrics, ApplicationStyles } from '../../Themes/'
 
-let actorImageWidth = Metrics.screenWidth * 0.6
-let actorImageHeight = actorImageWidth*750/500
+export let actorImageWidth = Metrics.screenWidth * 0.6
+export let actorImageHeight = actorImageWidth*750/500
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -30,13 +30,17 @@ export default StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center' 
-  },    
-  input: {
-    height: 50,
-    color: Colors.white,
-    borderBottomColor: Colors.white,
-    textAlign: 'center',
-    marginHorizontal: Metrics.section,
+  },
+  blackBoxes: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    width: actorImageWidth,
+    height: actorImageHeight,
+    marginTop: -1*actorImageHeight,
+  },
+  blackBox: {
+    backgroundColor: Colors.black,
   },
   text: {
     color: Colors.white
@@ -71,5 +75,6 @@ export default StyleSheet.create({
     textAlign: 'center',    
     fontSize: 150,
     color: Colors.white
-  }
+  },
+
 })

@@ -2,17 +2,24 @@ import React from 'react'
 import { ScrollView, Text, KeyboardAvoidingView, View, Image } from 'react-native'
 import { connect } from 'react-redux'
 import RoundedButton from '../../App/Components/RoundedButton'
+import { Colors } from '../Themes/'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
 // Styles
-import styles from './Styles/MultiPlayersGameScreenStyle'
-import { setTimeout } from 'core-js/library/web/timers';
+import styles, {actorImageHeight, actorImageWidth} from './Styles/MultiPlayersGameScreenStyle'
+// import { setTimeout, setInterval } from 'core-js/library/web/timers';
+// import { clearInterval } from 'timers';
 
 const dataActors = require('../Fixtures/actors.json').actors
 
+const nbRows = 7
+const nbCols = 5
+const timeout = 1000
+
 class MultiPlayersGameScreen extends React.Component {
+  
   state = {
     actor: {},
     clickedPlayer: undefined, // could be undefined, 1 or 2,
@@ -29,7 +36,7 @@ class MultiPlayersGameScreen extends React.Component {
   }
 
   componentWillMount() {
-    this.state.actor = dataActors[Math.floor(Math.random() * dataActors.length)]
+    this.nextQuestion()
   }
 
   // nextActor = () => {
@@ -45,6 +52,7 @@ class MultiPlayersGameScreen extends React.Component {
   // }
 
   clickByPlayer = (playerId) => {
+    clearInterval(this.state.intervalId)
     this.setState({
       ...this.state,
       clickedPlayer: playerId,
@@ -67,6 +75,7 @@ class MultiPlayersGameScreen extends React.Component {
   }
 
   clickUnknown = () => {
+    clearInterval(this.state.intervalId)
     this.setState({
       ...this.state,
       status: 'showingAnswer'
@@ -84,10 +93,35 @@ class MultiPlayersGameScreen extends React.Component {
   }
 
   nextQuestion = () => {
+    
+    let boxesAreDisplayed = []
+    for (var row = 0; row < nbRows; row++) {
+      for (var col = 0; col < nbCols; col++) {
+        boxesAreDisplayed.push(Math.random() < 0.01)
+      }
+    }
+    
+    let intervalId = setInterval(() => {
+      let cont = true
+      for (var i = 0; i < boxesAreDisplayed.length && cont; i++) {
+        let indRandom = Math.floor(Math.random()*boxesAreDisplayed.length)
+        if (!boxesAreDisplayed[indRandom]) {
+          boxesAreDisplayed[indRandom] = true
+          cont = false
+        }
+      }
+      this.setState({
+        ...this.state,
+        boxesAreDisplayed
+      })
+    }, timeout)
+
     this.setState({
       ...this.state,
       status: 'question',
+      intervalId,
       actor: dataActors[Math.floor(Math.random() * dataActors.length)],
+      boxesAreDisplayed
     })
   }
 
@@ -177,6 +211,31 @@ class MultiPlayersGameScreen extends React.Component {
     }
   }    
 
+  renderBlackBoxes = () => {
+    if (this.state.status == 'validation' || this.state.status == 'showingAnswer')
+      return;
+    let boxes = []
+    let blackBoxStyle = {
+      width: actorImageWidth/nbCols,
+      height: actorImageHeight/nbRows,
+    }
+
+    for (var key = 0; key < this.state.boxesAreDisplayed.length; key++) {
+      boxes.push(
+        (
+          <View style={[blackBoxStyle, {backgroundColor: this.state.boxesAreDisplayed[key] ? 'transparent' : Colors.black }]} key={key}>
+            {/* <Text style={styles.text}>{key}</Text> */}
+          </View>
+        )
+      )
+    }
+    return (
+      <View style={styles.blackBoxes}>
+        {boxes}
+      </View>
+    )
+  }
+
   renderSolution = () => {
     if (this.state.status === 'validation' || this.state.status === 'showingAnswer') {
       return (
@@ -197,8 +256,10 @@ class MultiPlayersGameScreen extends React.Component {
               style={styles.actorImage}
               source={{ uri: this.state.actor.pictureUrl }}
             /> 
+            {this.renderBlackBoxes()}
             {this.renderSolution()}
           </View>
+          
 
           <View style={styles.centered}>
             <Text style={styles.text}>{ this.state.message }</Text>
